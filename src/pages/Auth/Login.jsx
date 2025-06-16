@@ -4,15 +4,18 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '@/Redux/Auth/Action';
+import { API_BASE_URL } from '@/config/api';
+
+
 // import { Link } from 'react-router-dom';
 // import AllWorksCTA from "https://framer.com/m/All-Works-CTA-gpas.js@A9J659vnd2OCgRX0kMlt"
 
-const API_Version = 'http://localhost:5454';
+//const API_Version = 'http://localhost:5454';
 
 
 
 const fetchPostData = (uri, payload) => {
-  const url = `${API_Version}${uri}`;
+  const url = `${API_BASE_URL}${uri}`;
   return axios.post(url, payload).catch((err) => {
     console.error('Error posting data:', url, 'Error:', err.message);
     throw err;
